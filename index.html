@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SYS://PORTFOLIO — v4.2.1</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<canvas id="matrix-bg"></canvas>
+
+<div id="app">
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <div class="topbar-left">
+      <div class="topbar-dots">
+        <div class="dot red"></div>
+        <div class="dot amber"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="sys-id">SYS://<span>DEV</span>@PORTFOLIO_v4.2.1</div>
+    </div>
+    <div class="topbar-right">
+      <span>CPU: <span style="color:var(--green)">34%</span></span>
+      <span>MEM: <span style="color:var(--amber)">67%</span></span>
+      <span>NET: <span style="color:var(--cyan)">↑ 2.1MB/s</span></span>
+      <span id="clock">--:--:--</span>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Navigation</div>
+      <div class="nav-item active" onclick="showPanel('home')"><span class="nav-icon">⌂</span>Home<span class="nav-key">F1</span></div>
+      <div class="nav-item" onclick="showPanel('projects')"><span class="nav-icon">◈</span>Projects<span class="nav-key">F2</span></div>
+      <div class="nav-item" onclick="showPanel('skills')"><span class="nav-icon">▣</span>Skills<span class="nav-key">F3</span></div>
+      <div class="nav-item" onclick="showPanel('terminal')"><span class="nav-icon">▶</span>Terminal<span class="nav-key">F4</span></div>
+      <div class="nav-item" onclick="showPanel('contact')"><span class="nav-icon">✉</span>Contact<span class="nav-key">F5</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">System Status</div>
+      <div class="status-row"><span class="status-label">UPTIME</span><span class="status-val" id="uptime">00:00:00</span></div>
+      <div class="status-row"><span class="status-label">PACKETS</span><span class="status-val" id="packets">0</span></div>
+      <div class="status-row">
+        <span class="status-label">SIGNAL</span>
+        <div class="status-bar-wrap"><div class="status-bar-fill" style="width:82%"></div></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Activity</div>
+      <div class="mini-chart" id="mini-chart"></div>
+    </div>
+    <div class="sidebar-section" style="margin-top:auto;">
+      <div class="sidebar-title">Current User</div>
+      <div style="font-size:11px;color:var(--green);margin-bottom:4px;">root@devmachine</div>
+      <div style="font-size:9px;color:rgba(0,255,65,0.4);">Session: #4829</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+    <!-- HOME -->
+    <div class="panel active" id="panel-home">
+      <div class="terminal-header">
+        <div class="terminal-path">SYS://DEV@PORTFOLIO/home $</div>
+        <div class="terminal-title">
+          <span class="glitch" data-text="FULL STACK">FULL STACK</span><br/>
+          <span style="color:var(--amber)">DEVELOPER</span>
+        </div>
+      </div>
+      <div style="font-size:12px;color:rgba(0,255,65,0.6);line-height:1.9;max-width:600px;margin-bottom:24px;">
+        &gt; Specialising in high-performance web applications, real-time systems, and creative engineering.<br/>
+        &gt; 7+ years building products that scale from zero to millions.<br/>
+        &gt; Open to freelance &amp; full-time roles. Based on Earth. Working anywhere.
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button onclick="showPanel('projects')" style="background:var(--green3);border:1px solid var(--border2);color:var(--green);padding:10px 20px;font-family:var(--font);font-size:12px;cursor:pointer;letter-spacing:0.1em;transition:all 0.3s;" onmouseover="this.style.background='rgba(0,255,65,0.15)'" onmouseout="this.style.background='var(--green3)'">[ VIEW PROJECTS ]</button>
+        <button onclick="showPanel('terminal')" style="background:transparent;border:1px solid var(--border);color:rgba(0,255,65,0.6);padding:10px 20px;font-family:var(--font);font-size:12px;cursor:pointer;letter-spacing:0.1em;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--border2)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='rgba(0,255,65,0.6)'">[ OPEN TERMINAL ]</button>
+      </div>
+      <div style="margin-top:32px;padding:16px;background:var(--surface);border:1px solid var(--border);font-size:11px;color:rgba(0,255,65,0.5);line-height:1.8;">
+        <div style="color:var(--amber);margin-bottom:6px;">// RECENT ACTIVITY LOG</div>
+        <div id="activity-log"></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="panel" id="panel-projects">
+      <div class="terminal-header">
+        <div class="terminal-path">SYS://DEV@PORTFOLIO/projects $</div>
+        <div class="terminal-title">PROJECTS<span style="color:var(--amber)">_</span></div>
+      </div>
+      <div class="card-grid">
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_001] — WEB APP</div><div class="card-title">NeuralDash</div><div class="card-desc">Real-time ML model monitoring platform. Live metrics, alerting, and explainability visualisations.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">React</span><span class="tech-tag">WebGL</span><span class="tech-tag">Python</span></div><span class="card-link">→ DEMO</span></div></div>
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_002] — SYSTEM</div><div class="card-title">StreamForge</div><div class="card-desc">High-throughput event streaming pipeline processing 50M+ events/day with sub-10ms latency.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">Rust</span><span class="tech-tag">Kafka</span><span class="tech-tag">k8s</span></div><span class="card-link">→ REPO</span></div></div>
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_003] — CREATIVE</div><div class="card-title">QuantumUI</div><div class="card-desc">Generative design system with physics-based animations and adaptive layout algorithms.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">Three.js</span><span class="tech-tag">GLSL</span><span class="tech-tag">TS</span></div><span class="card-link">→ LIVE</span></div></div>
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_004] — TOOL</div><div class="card-title">DevSync CLI</div><div class="card-desc">Cross-platform developer workflow tool. Config sync, secrets management, team onboarding.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">Go</span><span class="tech-tag">CLI</span><span class="tech-tag">TLS</span></div><span class="card-link">→ NPM</span></div></div>
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_005] — MOBILE</div><div class="card-title">HoloTrack</div><div class="card-desc">AR fitness app with pose estimation and real-time biometric feedback overlays.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">Swift</span><span class="tech-tag">ARKit</span><span class="tech-tag">CoreML</span></div><span class="card-link">→ APP STORE</span></div></div>
+        <div class="card"><div class="corner-mark"></div><div class="card-tag">[PROJECT_006] — INFRA</div><div class="card-title">EdgeMatrix</div><div class="card-desc">Distributed CDN with intelligent routing, real-time analytics, and automatic failover.</div><div class="card-footer"><div class="card-tech"><span class="tech-tag">Terraform</span><span class="tech-tag">Go</span><span class="tech-tag">AWS</span></div><span class="card-link">→ CASE STUDY</span></div></div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="panel" id="panel-skills">
+      <div class="terminal-header">
+        <div class="terminal-path">SYS://DEV@PORTFOLIO/skills $</div>
+        <div class="terminal-title">SKILLS<span style="color:var(--amber)">_</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--amber);margin-bottom:16px;">// FRONTEND</div>
+          <div class="skill-list" id="skills-front"></div>
+        </div>
+        <div>
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--amber);margin-bottom:16px;">// BACKEND & INFRA</div>
+          <div class="skill-list" id="skills-back"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMINAL -->
+    <div class="panel" id="panel-terminal">
+      <div class="terminal-header">
+        <div class="terminal-path">SYS://DEV@PORTFOLIO/terminal $</div>
+        <div class="terminal-title">TERMINAL<span style="color:var(--amber)">_</span></div>
+      </div>
+      <div class="terminal-output" id="terminal-output"></div>
+      <div class="terminal-input-row">
+        <span class="prompt-symbol">root@portfolio:~$</span>
+        <input id="terminal-input" type="text" placeholder="type 'help' for commands..." autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="panel" id="panel-contact">
+      <div class="terminal-header">
+        <div class="terminal-path">SYS://DEV@PORTFOLIO/contact $</div>
+        <div class="terminal-title">CONTACT<span style="color:var(--amber)">_</span></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><div class="contact-icon">✉</div><div class="contact-info"><div class="contact-label">EMAIL</div><div class="contact-val">dev@matrix.io</div></div></div>
+        <div class="contact-card"><div class="contact-icon">◈</div><div class="contact-info"><div class="contact-label">GITHUB</div><div class="contact-val">github.com/dev</div></div></div>
+        <div class="contact-card"><div class="contact-icon">▣</div><div class="contact-info"><div class="contact-label">LINKEDIN</div><div class="contact-val">linkedin.com/in/dev</div></div></div>
+        <div class="contact-card"><div class="contact-icon">◉</div><div class="contact-info"><div class="contact-label">TWITTER</div><div class="contact-val">@devmatrix</div></div></div>
+      </div>
+      <div style="margin-top:20px;padding:16px;background:var(--surface);border:1px solid var(--border);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--amber);margin-bottom:10px;">// SEND MESSAGE</div>
+        <input type="text" placeholder="Your message..." style="width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--green);font-family:var(--font);font-size:12px;padding:8px 0;outline:none;margin-bottom:12px;"/>
+        <button style="background:var(--green3);border:1px solid var(--border2);color:var(--green);padding:8px 20px;font-family:var(--font);font-size:11px;cursor:pointer;letter-spacing:0.15em;">[ TRANSMIT ]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div id="bottombar">
+    <span>KERNEL: Linux 6.8.0-generic | NODE v20.11 | SECURE CONNECTION: AES-256</span>
+    <span>© 2025 DEV_CORP | ALL RIGHTS RESERVED</span>
+    <span id="bottom-status">STATUS: ONLINE<span class="blink"> ●</span></span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
