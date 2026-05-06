@@ -1,12 +1,4 @@
 
-body::before{content:'';position:fixed;inset:0;background:var(--scanline);pointer-events:none;z-index:9999;animation:scanMove 8s linear infinite;}
-body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.7) 100%);pointer-events:none;z-index:9998;}
-@keyframes scanMove{0%{background-position:0 0}100%{background-position:0 100px}}
-
-/* MATRIX RAIN */
-#matrix-bg{position:fixed;inset:0;z-index:0;opacity:0.12;}
-
-/* LAYOUT */
 #app{position:fixed;inset:0;z-index:10;display:grid;grid-template-columns:260px 1fr;grid-template-rows:auto 1fr auto;gap:0;}
 
 /* TOP BAR */
