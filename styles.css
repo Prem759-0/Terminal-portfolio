@@ -1,11 +1,4 @@
-
-#app{position:fixed;inset:0;z-index:10;display:grid;grid-template-columns:260px 1fr;grid-template-rows:auto 1fr auto;gap:0;}
-
-/* TOP BAR */
-#topbar{grid-column:1/-1;background:var(--bg2);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;padding:8px 20px;
-  position:relative;overflow:hidden;}
-#topbar::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);animation:scanH 3s linear infinite;}
+,transparent,var(--green),transparent);animation:scanH 3s linear infinite;}
 @keyframes scanH{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .topbar-left{display:flex;align-items:center;gap:16px;}
 .sys-id{font-family:var(--font2);font-size:13px;font-weight:700;color:var(--green);letter-spacing:0.15em;}
