@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --green:#00ff41;--green2:#00cc33;--green3:rgba(0,255,65,0.15);
-  --amber:#ffb300;--red:#ff003c;--cyan:#00e5ff;
-  --bg:#000a00;--bg2:#000f00;--surface:rgba(0,255,65,0.04);
+@
   --border:rgba(0,255,65,0.2);--border2:rgba(0,255,65,0.4);
   --font:'Share Tech Mono',monospace;--font2:'Orbitron',monospace;
   --scanline:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.15) 2px,rgba(0,0,0,0.15) 4px);
