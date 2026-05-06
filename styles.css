@@ -1,31 +1,5 @@
 @
-  --border:rgba(0,255,65,0.2);--border2:rgba(0,255,65,0.4);
-  --font:'Share Tech 
-@keyframes glitch1{0%,90%,100%{transform:translateX(0)}91%{transform:translateX(-3px)}93%{transform:translateX(3px)}95%{transform:translateX(-1px)}}
-@keyframes glitch2{0%,88%,100%{transform:translateX(0)}89%{transform:translateX(3px)}91%{transform:translateX(-2px)}93%{transform:translateX(1px)}}
- 
-/* CARDS */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px;}
-.card{background:var(--surface);border:1px solid var(--border);padding:16px;border-radius:2px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.3s;}
-.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,65,0.05) 0%,transparent 60%);transition:opacity 0.3s;}
-.card::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);transition:left 0.4s;}
-.card:hover{border-color:var(--border2);box-shadow:0 0 20px rgba(0,255,65,0.1);}
-.card:hover::after{left:100%;}
-.card-tag{font-size:9px;letter-spacing:0.2em;color:var(--amber);margin-bottom:8px;}
-.card-title{font-family:var(--font2);font-size:14px;font-weight:700;color:var(--green);margin-bottom:6px;}
-.card-desc{font-size:11px;color:rgba(0,255,65,0.55);line-height:1.7;}
-.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid rgba(0,255,65,0.1);}
-.card-tech{display:flex;gap:6px;flex-wrap:wrap;}
-.tech-tag{font-size:9px;padding:2px 6px;border:1px solid rgba(0,255,65,0.3);color:rgba(0,255,65,0.6);border-radius:2px;}
-.card-link{font-size:10px;color:var(--cyan);letter-spacing:0.1em;}
-.card-link:hover{text-shadow:0 0 6px var(--cyan);}
-.corner-mark{position:absolute;top:8px;right:8px;width:20px;height:20px;}
-.corner-mark::before,.corner-mark::after{content:'';position:absolute;background:var(--green);}
-.corner-mark::before{top:0;right:0;width:1px;height:10px;}
-.corner-mark::after{top:0;right:0;width:10px;height:1px;}
- 
-/* SKILL BARS */
-.skill-list{display:flex;flex-direction:column;gap:12px;}
+  
 .skill-item{display:flex;flex-direction:column;gap:4px;}
 .skill-header{display:flex;justify-content:space-between;font-size:11px;}
 .skill-name{color:var(--green);}
